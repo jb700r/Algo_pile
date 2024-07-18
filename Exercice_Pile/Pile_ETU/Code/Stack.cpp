@@ -58,6 +58,7 @@ void Stack::display() const
     {
         current->getBook()->display();
         current = current->getNext();
+        cout << "Nb de node :" << getNumNodes() << endl;
     }
     
 }
