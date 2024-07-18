@@ -39,4 +39,5 @@ Book* Stack::pop()
 void Stack::display() const
 {
     //TODO : Afficher toutes les donn�es de la Pile
+    
 }
