@@ -9,6 +9,15 @@ Stack::Stack()
 Stack::~Stack()
 {
     //TODO : Detruire la pile selon les sp�cifications
+    Node* current = getFirstNode();
+    while (current != NULL)
+    {
+        Node* temp = current->getNext();
+        delete current->getBook();
+        delete current;
+        current = temp;
+        
+    }
 }
 
 void Stack::push(Book* book)
@@ -28,16 +37,29 @@ void Stack::push(Book* book)
 
 Book* Stack::pop()
 {
-    Book* book = NULL;
+    if (getFirstNode()==NULL)
+    {
+        return NULL;
+    }
+    Book* book = getFirstNode()->getBook();
+    Node* temp = getFirstNode()->getNext();
     //TODO : D�piler selon les sp�cifications
 
     //mettre first = au next et return le premier node->getbook
-
+    delete getFirstNode()->getBook();
+    delete getFirstNode();
+    setFirstNode(temp);
     return book;
 }
 
 void Stack::display() const
 {
+    Node* current = getFirstNode();
     //TODO : Afficher toutes les donn�es de la Pile
+    while (current != NULL)
+    {
+        current->getBook()->display();
+        current = current->getNext();
+    }
     
 }
