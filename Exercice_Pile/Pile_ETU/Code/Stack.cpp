@@ -13,7 +13,6 @@ Stack::~Stack()
     while (current != NULL)
     {
         Node* temp = current->getNext();
-        delete current->getBook();
         delete current;
         current = temp;
         
@@ -41,12 +40,11 @@ Book* Stack::pop()
     {
         return NULL;
     }
-    Book* book = getFirstNode()->getBook();
+    Book* book = NULL;
     Node* temp = getFirstNode()->getNext();
     //TODO : D�piler selon les sp�cifications
 
     //mettre first = au next et return le premier node->getbook
-    delete getFirstNode()->getBook();
     delete getFirstNode();
     setFirstNode(temp);
     return book;
